@@ -1,224 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Md Jaseem Akhtar | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaseem Portfolio</title>
 
-  <style>
-    :root {
-      --primary: #0a66c2;
-      --bg: #ffffff;
-      --text: #111;
-      --light: #f5f5f5;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: Arial, sans-serif;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+body {
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: white;
+}
 
-    header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      background: white;
-      padding: 10px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
+/* Navbar */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  z-index: 1000;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
 
-    nav a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: bold;
-    }
+header a:hover {
+  color: #38bdf8;
+}
 
-    section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: 0.6s ease;
-    }
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.hero h1 {
+  font-size: 3rem;
+}
 
-    .hero {
-      text-align: center;
-      padding-top: 120px;
-    }
+.hero span {
+  background: linear-gradient(90deg, #38bdf8, #22c55e);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
-    .hero img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: #ddd;
-      margin-bottom: 15px;
-    }
+.hero p {
+  margin-top: 10px;
+  opacity: 0.8;
+}
 
-    h1 {
-      font-size: 2rem;
-    }
+/* Section */
+section {
+  padding: 100px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    h2 {
-      margin-bottom: 10px;
-      color: var(--primary);
-    }
+/* Glass card */
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.1);
+  margin-top: 20px;
+  transition: 0.3s;
+}
 
-    ul {
-      margin-left: 20px;
-    }
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 0 20px rgba(56,189,248,0.2);
+}
 
-    .card {
-      background: var(--light);
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 10px;
-      transition: transform 0.3s;
-    }
+/* Headings */
+h2 {
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #38bdf8, #22c55e);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+/* Lists */
+ul {
+  padding-left: 20px;
+}
 
-    .contact a {
-      display: inline-block;
-      margin-top: 10px;
-      color: var(--primary);
-      text-decoration: none;
-    }
+/* Contact */
+.contact a {
+  color: #38bdf8;
+  text-decoration: none;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: var(--light);
-      margin-top: 40px;
-    }
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
+}
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+/* Animation */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile */
+@media(max-width: 600px){
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <nav>
-    <div><strong>Jaseem</strong></div>
-    <div>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <div><b>Jaseem</b></div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
 </header>
 
-<section class="hero show">
-  <img src="" alt="Profile Photo Placeholder">
-  <h1>Md Jaseem Akhtar</h1>
+<!-- Hero -->
+<section class="hero fade">
+  <h1>Md <span>Jaseem Akhtar</span></h1>
   <p>Diploma Civil Engineering Student</p>
 </section>
 
-<section id="about">
+<!-- About -->
+<section id="about" class="fade">
   <h2>About</h2>
-  <p>
-    Currently pursuing a diploma in Civil Engineering. Passionate about learning real-world construction practices and infrastructure development. Interested in combining technical skills with meaningful impact.
-  </p>
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-  <ul>
-    <li>Basic HTML (learning)</li>
-    <li>Civil Engineering Basics</li>
-    <li>Site Observation</li>
-    <li>Communication Skills (learning)</li>
-  </ul>
-</section>
-
-<section id="experience">
-  <h2>Experience</h2>
   <div class="card">
     <p>
-      Completed internship under Irrigation Department, Dumka (Jharkhand), working on Masaliya Raniswar Mega Lift Irrigation Project executed by L&T Construction.
+      Currently pursuing a diploma in Civil Engineering. Passionate about real-world construction practices and infrastructure development. Focused on learning and building meaningful projects.
     </p>
   </div>
 </section>
 
-<section id="projects">
+<!-- Skills -->
+<section id="skills" class="fade">
+  <h2>Skills</h2>
+  <div class="card">
+    <ul>
+      <li>HTML (Learning)</li>
+      <li>Civil Engineering Basics</li>
+      <li>Site Observation</li>
+      <li>Communication Skills</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience" class="fade">
+  <h2>Experience</h2>
+  <div class="card">
+    Internship under Irrigation Department, Dumka on Masaliya Raniswar Mega Lift Irrigation Project by L&T Construction.
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="fade">
   <h2>Projects</h2>
   <div class="card">
     <h3>Masaliya Raniswar LIS Project</h3>
-    <p>
-      A large-scale irrigation project aimed at solving water scarcity in Dumka district and providing water coverage to 229 villages.
-    </p>
+    <p>Large-scale irrigation project for 229 villages.</p>
 
-    <h4>Key Work:</h4>
     <ul>
-      <li>Observed barrage construction and pumping systems</li>
-      <li>Understood pipeline network (~1000 km)</li>
-      <li>Learned about project execution and safety measures</li>
-    </ul>
-
-    <h4>Learning:</h4>
-    <ul>
-      <li>Practical exposure to large-scale civil engineering works</li>
-      <li>Importance of safety and supervision</li>
-      <li>Understanding of infrastructure planning and execution</li>
+      <li>Barrage & Pump Systems</li>
+      <li>Pipeline (~1000 km)</li>
+      <li>Safety & Execution Learning</li>
     </ul>
   </div>
 </section>
 
-<section id="contact" class="contact">
+<!-- Contact -->
+<section id="contact" class="fade contact">
   <h2>Contact</h2>
-  <p>Email: <a href="mailto:Jasimmr079@gmail.com">Jasimmr079@gmail.com</a></p>
-  <p>Instagram: <a href="https://instagram.com/ja88i.m" target="_blank">@ja88i.m</a></p>
+  <div class="card">
+    <p>Email: Jasimmr079@gmail.com</p>
+    <p>Instagram: @ja88i.m</p>
+  </div>
 </section>
 
 <footer>
-  <p>© 2026 Md Jaseem Akhtar</p>
+  © 2026 Md Jaseem Akhtar
 </footer>
 
 <script>
-  const sections = document.querySelectorAll("section");
+const elements = document.querySelectorAll(".fade");
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
+window.addEventListener("scroll", () => {
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      el.classList.add("show");
+    }
   });
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
+});
 </script>
 
 </body>
